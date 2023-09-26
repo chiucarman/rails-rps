@@ -32,6 +32,16 @@ class ZebraController < ApplicationController
   end
 
   def snake
-  
+    @comp_move = ["rock", "paper", "scissors"].sample
+
+    if @comp_move == "scissors"
+      @outcome = "tied"
+    elsif @comp_move == "rock"
+      @outcome = "lost"
+    else
+      @outcome = "won"
+    end
+
+    render({ :template => "game_templates/play_scissors" })
   end
 end
